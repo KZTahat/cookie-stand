@@ -137,7 +137,7 @@ Cookies.prototype.totalRaw = function () { //................. Total Render
         td.textContent = sum;
     }
 
-    let td2 = document.createElement('td'); // ..................Total of Totals :)
+    let td2 = document.createElement('td'); // ....................Total of Totals :)
     tR7.appendChild(td2);
     let sum = 0;
     for (let i = 0; i < cookiesArray.length; i++) {
