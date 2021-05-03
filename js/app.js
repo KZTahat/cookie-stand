@@ -147,7 +147,7 @@ Cookies.prototype.totalRaw = function () { //................. Total Render
 }
 
 
-
+//............................... NEW Instances addmission and thier function calls
 let seattle = new Cookies('seattle', 23, 65, 6.3);
 seattle.tableHeader();
 seattle.getCustomers();
