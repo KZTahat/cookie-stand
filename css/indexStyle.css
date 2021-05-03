@@ -1,0 +1,7 @@
+
+nav{background-color: grey;border-radius: 5px;text-align: center;}
+h1{display: inline-block;font-size: xx-large;color: blue;padding: 20px;}
+ul li a{text-decoration: none;color: rgb(39, 163, 39);font-size: 20px;padding: 5px;}
+ul li{display: inline-block;background-color: greenyellow;border-radius: 7px;margin: 30px;}
+ul li:hover{background-color: indigo;color: black;}
+img{float: right;margin-right: 250px;}
