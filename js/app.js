@@ -11,7 +11,7 @@ let seattle = {
     cookiesPERhoure: [],
 
     getCustomers: function (min, max) {
-        for (let i = 1; i <= 14; i++) {
+        for (let i = 0; i < this.hoursOFoperation.length; i++) {
             min = Math.ceil(min);
             max = Math.floor(max);
             this.customerPERhoure.push(Math.floor(Math.random() * (max - min + 1) + min));
