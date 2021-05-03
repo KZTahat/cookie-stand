@@ -18,7 +18,7 @@ let seattle = {
         }
     },
     getCookies: function () {
-        for (let i = 0; i < this.customerPERhoure.length; i++) {
+        for (let i = 0; i < this.hoursOFoperation.length; i++) {
             this.cookiesPERhoure.push(Math.floor(this.customerPERhoure[i] * (6.3)));
         }
     },
@@ -29,13 +29,13 @@ let seattle = {
         container.appendChild(h1El);
         let ulEl = document.createElement('ul');
         container.appendChild(ulEl);
-        for (let i = 0; i < this.cookiesPERhoure.length; i++){
+        for (let i = 0; i < this.hoursOFoperation.length; i++){
             let liEl = document.createElement('li');
             ulEl.appendChild(liEl);
-            liEl.textContent = `${this.hoursOFoperation[i]}: `+ this.cookiesPERhoure[i];
+            liEl.textContent = `${this.hoursOFoperation[i]}: `+ `${this.cookiesPERhoure[i]} cookies`;
         }
         let sum = 0;
-        for (let i = 0; i < this.cookiesPERhoure.length; i++){
+        for (let i = 0; i < this.hoursOFoperation.length; i++){
             sum = sum + this.cookiesPERhoure[i];
         }
         let liTotal = document.createElement('li');
@@ -76,7 +76,7 @@ let tokyo = {
     render: function () {
         let container = document.getElementById('mainelement');
         let h1El = document.createElement('h1');
-        h1El.textContent = 'tokyo';
+        h1El.textContent = this.locationName;
         container.appendChild(h1El);
         let ulEl = document.createElement('ul');
         container.appendChild(ulEl);
