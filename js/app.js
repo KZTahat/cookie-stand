@@ -127,7 +127,7 @@ Cookies.prototype.totalRaw = function () { //................. Total Render
     tR7.appendChild(td1);
     td1.textContent = 'Total';
 
-    for (let i = 0; i < this.hoursOFoperation.length; i++) { // ......First column summation :)
+    for (let i = 0; i < this.hoursOFoperation.length; i++) { // ......The 14s column summation :)
         let td = document.createElement('td');
         tR7.appendChild(td);
         let sum = 0;
