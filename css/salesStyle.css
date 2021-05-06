@@ -1,4 +1,6 @@
 
+body{background-color: lightblue;}
+
 /* .....................Header(title and nav bar) */
 nav{background-color: grey;border-radius: 5px;text-align: center;}
 h1{display: inline-block;font-size: xx-large;color: blue;padding: 20px;}
@@ -6,7 +8,8 @@ ul li a{text-decoration: none;color: rgb(39, 163, 39);font-size: 20px;padding: 5
 #salsNav li{display: inline-block;background-color: greenyellow;border-radius: 7px;margin: 30px;}
 #salsNav li:hover{background-color: indigo;color: black;}
 
-table{color: crimson;border:1px solid blueviolet;border-radius: 3px;}
+/* Results Table */
+table{color: crimson;border:1px solid blueviolet;border-radius: 3px;margin-left: 230px;}
 table tr th{color:chocolate;text-align: center;padding: 5px;border: 1px solid rgb(39, 163, 39);}
 table tr td{color: blue;text-align: center;padding: 5px;border:1px solid black;}
 table tr td:hover{border: 1px dotted brown;color: cyan;}
