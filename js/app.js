@@ -30,6 +30,7 @@ Cookies.prototype.getCookies = function () { // ....................get Cookies 
 }
 let container = document.getElementById('mainelement');
 let tableEl = document.createElement('table');
+
 Cookies.prototype.tableHeader = function () { // ................... Header Render
     container.appendChild(tableEl);
     let tR1 = document.createElement('tr');
@@ -45,81 +46,22 @@ Cookies.prototype.tableHeader = function () { // ................... Header Rend
     tR1.appendChild(th2);
     th2.textContent = 'Daily Location Total';
 }
-Cookies.prototype.seattleRender = function () { //................. Seattle Render
-    let tR2 = document.createElement('tr');
-    tableEl.appendChild(tR2);
+Cookies.prototype.Render = function () { //.................  Render
+    let tableRows = document.createElement('tr');
+    tableEl.appendChild(tableRows);
     let td1 = document.createElement('td');
-    tR2.appendChild(td1);
+    tableRows.appendChild(td1);
     td1.textContent = this.locationName;
     for (let i = 0; i < this.hoursOFoperation.length; i++) {
         let td = document.createElement('td');
-        tR2.appendChild(td);
+        tableRows.appendChild(td);
         td.textContent = this.cookiesPERhoure[i];
     }
     let td2 = document.createElement('td');
-    tR2.appendChild(td2);
+    tableRows.appendChild(td2);
     td2.textContent = this.totalCookies;
 }
-Cookies.prototype.tokyoRender = function () { //................. Tokyo Render
-    let tR3 = document.createElement('tr');
-    tableEl.appendChild(tR3);
-    let td1 = document.createElement('td');
-    tR3.appendChild(td1);
-    td1.textContent = this.locationName;
-    for (let i = 0; i < this.hoursOFoperation.length; i++) {
-        let td = document.createElement('td');
-        tR3.appendChild(td);
-        td.textContent = this.cookiesPERhoure[i];
-    }
-    let td2 = document.createElement('td');
-    tR3.appendChild(td2);
-    td2.textContent = this.totalCookies;
-}
-Cookies.prototype.dubaiRender = function () { //................. Dubai Render
-    let tR4 = document.createElement('tr');
-    tableEl.appendChild(tR4);
-    let td1 = document.createElement('td');
-    tR4.appendChild(td1);
-    td1.textContent = this.locationName;
-    for (let i = 0; i < this.hoursOFoperation.length; i++) {
-        let td = document.createElement('td');
-        tR4.appendChild(td);
-        td.textContent = this.cookiesPERhoure[i];
-    }
-    let td2 = document.createElement('td');
-    tR4.appendChild(td2);
-    td2.textContent = this.totalCookies;
-}
-Cookies.prototype.parisRender = function () { //................. Paris Render
-    let tR5 = document.createElement('tr');
-    tableEl.appendChild(tR5);
-    let td1 = document.createElement('td');
-    tR5.appendChild(td1);
-    td1.textContent = this.locationName;
-    for (let i = 0; i < this.hoursOFoperation.length; i++) {
-        let td = document.createElement('td');
-        tR5.appendChild(td);
-        td.textContent = this.cookiesPERhoure[i];
-    }
-    let td2 = document.createElement('td');
-    tR5.appendChild(td2);
-    td2.textContent = this.totalCookies;
-}
-Cookies.prototype.limaRender = function () { //................. Lima Render
-    let tR6 = document.createElement('tr');
-    tableEl.appendChild(tR6);
-    let td1 = document.createElement('td');
-    tR6.appendChild(td1);
-    td1.textContent = this.locationName;
-    for (let i = 0; i < this.hoursOFoperation.length; i++) {
-        let td = document.createElement('td');
-        tR6.appendChild(td);
-        td.textContent = this.cookiesPERhoure[i];
-    }
-    let td2 = document.createElement('td');
-    tR6.appendChild(td2);
-    td2.textContent = this.totalCookies;
-}
+
 Cookies.prototype.totalRaw = function () { //................. Total Render
     let tR7 = document.createElement('tr');
     tableEl.appendChild(tR7);
@@ -146,27 +88,121 @@ Cookies.prototype.totalRaw = function () { //................. Total Render
     td2.textContent = sum;
 }
 
-
 //............................... NEW Instances addmission and thier function calls
 let seattle = new Cookies('seattle', 23, 65, 6.3);
-seattle.tableHeader();
+seattle.tableHeader(Cookies.hoursOFoperation);
 seattle.getCustomers();
 seattle.getCookies();
-seattle.seattleRender();
+seattle.Render();
 let tokyo = new Cookies('tokyo', 3, 24, 1.2);
 tokyo.getCustomers();
 tokyo.getCookies();
-tokyo.tokyoRender();
+tokyo.Render();
 let dubai = new Cookies('dubai', 11, 38, 3.7);
 dubai.getCustomers();
 dubai.getCookies();
-dubai.dubaiRender();
+dubai.Render();
 let paris = new Cookies('paris', 20, 38, 2.3);
 paris.getCustomers();
 paris.getCookies();
-paris.parisRender();
+paris.Render();
 let lima = new Cookies('lima ', 2, 16, 4.6);
 lima.getCustomers();
 lima.getCookies();
-lima.limaRender();
-lima.totalRaw();
+lima.Render();
+
+
+// tableEl.deleteRow(2);
+
+//........................ Adding new branches using forms
+let flag = false;
+let branchForm = document.getElementById('branchForm');
+branchForm.addEventListener('submit', addBranch);
+function addBranch(event) {
+    event.preventDefault();
+    tableEl.deleteRow(tableEl.rows.length-1);
+    let locationName = event.target.locationName.value;
+    let minCustomer = event.target.minCustomer.value;
+    let maxCustomer = event.target.maxCustomer.value;
+    let avgCookies = event.target.avgCookies.value;
+
+    let branch = new Cookies(locationName, minCustomer, maxCustomer, avgCookies);
+    branch.getCustomers();
+    branch.getCookies();
+    branch.Render();
+    branch.totalRaw();
+    flag = true;
+    // if (insideROWcount > rowsCount) {tableEl.deleteRow(tableEl.rows.length - 2 )};
+}
+if (flag == false) { lima.totalRaw() };
+
+
+
+
+
+
+
+
+
+
+
+// Cookies.prototype.tokyoRender = function () { //................. Tokyo Render
+    //     let tR3 = document.createElement('tr');
+    //     tableEl.appendChild(tR3);
+    //     let td1 = document.createElement('td');
+    //     tR3.appendChild(td1);
+    //     td1.textContent = this.locationName;
+    //     for (let i = 0; i < this.hoursOFoperation.length; i++) {
+    //         let td = document.createElement('td');
+    //         tR3.appendChild(td);
+    //         td.textContent = this.cookiesPERhoure[i];
+    //     }
+    //     let td2 = document.createElement('td');
+    //     tR3.appendChild(td2);
+    //     td2.textContent = this.totalCookies;
+    // }
+    // Cookies.prototype.dubaiRender = function () { //................. Dubai Render
+    //     let tR4 = document.createElement('tr');
+    //     tableEl.appendChild(tR4);
+    //     let td1 = document.createElement('td');
+    //     tR4.appendChild(td1);
+    //     td1.textContent = this.locationName;
+    //     for (let i = 0; i < this.hoursOFoperation.length; i++) {
+    //         let td = document.createElement('td');
+    //         tR4.appendChild(td);
+    //         td.textContent = this.cookiesPERhoure[i];
+    //     }
+    //     let td2 = document.createElement('td');
+    //     tR4.appendChild(td2);
+    //     td2.textContent = this.totalCookies;
+    // }
+    // Cookies.prototype.parisRender = function () { //................. Paris Render
+    //     let tR5 = document.createElement('tr');
+    //     tableEl.appendChild(tR5);
+    //     let td1 = document.createElement('td');
+    //     tR5.appendChild(td1);
+    //     td1.textContent = this.locationName;
+    //     for (let i = 0; i < this.hoursOFoperation.length; i++) {
+    //         let td = document.createElement('td');
+    //         tR5.appendChild(td);
+    //         td.textContent = this.cookiesPERhoure[i];
+    //     }
+    //     let td2 = document.createElement('td');
+    //     tR5.appendChild(td2);
+    //     td2.textContent = this.totalCookies;
+    // }
+    // Cookies.prototype.limaRender = function () { //................. Lima Render
+    //     let tR6 = document.createElement('tr');
+    //     tableEl.appendChild(tR6);
+    //     let td1 = document.createElement('td');
+    //     tR6.appendChild(td1);
+    //     td1.textContent = this.locationName;
+    //     for (let i = 0; i < this.hoursOFoperation.length; i++) {
+    //         let td = document.createElement('td');
+    //         tR6.appendChild(td);
+    //         td.textContent = this.cookiesPERhoure[i];
+    //     }
+    //     let td2 = document.createElement('td');
+    //     tR6.appendChild(td2);
+    //     td2.textContent = this.totalCookies;
+    // }

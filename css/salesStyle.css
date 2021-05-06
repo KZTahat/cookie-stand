@@ -9,8 +9,13 @@ ul li a{text-decoration: none;color: rgb(39, 163, 39);font-size: 20px;padding: 5
 #salsNav li:hover{background-color: indigo;color: black;}
 
 /* Results Table */
-table{color: crimson;border:1px solid blueviolet;border-radius: 3px;margin-left: 230px;}
+table{color: crimson;border:1px solid blueviolet;border-radius: 3px;margin-left: 230px;margin-top: 30px;}
 table tr th{color:chocolate;text-align: center;padding: 5px;border: 1px solid rgb(39, 163, 39);}
 table tr td{color: blue;text-align: center;padding: 5px;border:1px solid black;}
 table tr td:hover{border: 1px dotted brown;color: cyan;}
 table tr th:hover{border: 1px dotted coral;color: darkorchid;}
+
+/* ....Form  */
+form{width: 200px;margin-left: 500px;background-color:gold}
+legend{color: forestgreen;}
+input{background-color: brown;}
