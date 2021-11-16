@@ -22,3 +22,5 @@ img:nth-child(6){float: left;margin-left: 100px;}
 img:nth-child(7){float: right;margin-right: 100px;}
 img:nth-child(8){float: left;width: 400px;margin-left: 100px;}
 
+
+video{margin: 30px 0px 30px 445px;}
